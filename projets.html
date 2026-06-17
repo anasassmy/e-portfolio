@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SAÉ & Projets — Portfolio BUT R&T Cybersécurité</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23d96833'/><text x='50%25' y='60%25' font-size='18' text-anchor='middle' fill='%230f0e0b' font-family='monospace' font-weight='700'>R</text></svg>"/>
+<style>
+/* Images SAÉ — gestion src vide + images réelles */
+.sae-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.75) saturate(0.65);
+  transition: filter 0.35s ease, transform 0.35s ease;
+}
+.sae-item:hover .sae-media img {
+  filter: brightness(0.9) saturate(1);
+  transform: scale(1.03);
+}
+.sae-media img[src=""] {
+  display: none;
+}
+.sae-media {
+  background: linear-gradient(135deg, #1a1812 0%, #252218 100%);
+}
+
+/* ════════════════════════════════════════════════════
+   BOUTONS CTA — Liens vers rapports / dossiers / github
+   ════════════════════════════════════════════════════ */
+.sae-footer {
+  padding: 1.1rem 1.5rem 1.4rem;
+  border-top: 1px solid var(--border);
+  background: rgba(0,0,0,0.18);
+}
+
+.sae-footer-text {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 0.6rem;
+}
+
+.sae-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: 100%;
+  padding: 0.75rem 1.2rem;
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--bg);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  border-radius: var(--radius);
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(217,104,51,0.25);
+  transition: transform 0.25s cubic-bezier(0.33,1,0.68,1),
+              box-shadow 0.25s cubic-bezier(0.33,1,0.68,1),
+              background 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sae-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.sae-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(217,104,51,0.4);
+  background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent) 100%);
+}
+.sae-cta:hover::before { opacity: 1; }
+
+.sae-cta:active { transform: translateY(-1px); }
+
+.sae-cta .cta-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.sae-cta .cta-arrow {
+  font-size: 0.85rem;
+  transition: transform 0.25s ease;
+}
+.sae-cta:hover .cta-arrow { transform: translateX(4px); }
+
+/* Variante GitHub : couleur différente pour bien distinguer */
+.sae-cta.cta-github {
+  background: linear-gradient(135deg, #2d2a22 0%, #3e3a30 100%);
+  color: var(--text);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  border: 1px solid var(--border-2);
+}
+.sae-cta.cta-github:hover {
+  background: linear-gradient(135deg, #3e3a30 0%, #4a4536 100%);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.45);
+  border-color: var(--accent);
+}
+
+/* Placeholder quand aucun lien disponible (SAÉ non terminée) */
+.sae-footer-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.7rem 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  background: var(--bg-card);
+  border: 1px dashed var(--border-2);
+  border-radius: var(--radius);
+}
+</style>
+</head>
+<body>
+<div class="cursor-dot" id="cursor"></div>
+
+<header id="header">
+  <nav>
+    <a href="index.html" class="nav-logo"><span>R&T</span>Cyber<span class="tag">BUT · 2A</span></a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html" class="active">SAÉ / Projets</a>
+      <a href="apropos.html">À propos</a>
+      <a href="contact.html" class="nav-cta">Contact</a>
+    </div>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Accueil</a>
+  <a href="competences.html">Compétences</a>
+  <a href="projets.html">SAÉ / Projets</a>
+  <a href="apropos.html">À propos</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container page-hero-content">
+      <div class="label">Situations d'apprentissage et d'évaluation</div>
+      <h1>Mes <span class="text-accent">SAÉ</span> &amp; Projets</h1>
+      <p>Chaque SAÉ constitue une preuve tangible de compétence. Retrouvez ci-dessous l'ensemble des projets réalisés sur les deux années de BUT R&amp;T, avec liens vers les rapports et rendus.</p>
+
+      <div class="projets-stats-row">
+        <div class="projets-stat">
+          <span class="projets-stat-num">6</span>
+          <span class="projets-stat-label">SAÉ au total</span>
+        </div>
+        <div class="projets-stat-sep"></div>
+        <div class="projets-stat">
+          <span class="projets-stat-num">3</span>
+          <span class="projets-stat-label">SAÉ BUT1</span>
+        </div>
+        <div class="projets-stat-sep"></div>
+        <div class="projets-stat">
+          <span class="projets-stat-num">3</span>
+          <span class="projets-stat-label">SAÉ BUT2</span>
+        </div>
+        <div class="projets-stat-sep"></div>
+        <div class="projets-stat">
+          <span class="projets-stat-num" style="color:var(--gold)">1</span>
+          <span class="projets-stat-label">En cours</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container saes-list">
+
+      <!-- ═══ BUT 1 ═══ -->
+      <div class="saes-year-block">
+        <div class="saes-year-heading reveal">
+          <span class="saes-year-badge y1">BUT 1</span>
+          <span class="saes-year-label">Première année — 2023 · 2024</span>
+          <span class="saes-year-count">6 SAÉ</span>
+        </div>
+
+        <div class="saes-grid">
+
+          <!-- SAÉ 1.04 -->
+          <div class="sae-item reveal">
+            <div class="sae-media">
+              <img src="1.04.jfif" alt="SAÉ 1.04 – Se présenter sur Internet" />
+              <div class="sae-media-overlay"></div>
+              <span class="sae-status-chip chip-done">✓ Terminé</span>
+            </div>
+            <div class="sae-body">
+              <div class="sae-code-row">
+                <span class="sae-code">SAÉ 1.04</span>
+                <span class="sae-ue">UE3</span>
+              </div>
+              <div class="sae-title">Se présenter sur Internet</div>
+              <p class="sae-desc">Création d'une présence numérique professionnelle : page web statique, gestion du nom de domaine, hébergement, notions de sécurité web (HTTPS, headers HTTP).</p>
+              <div class="sae-tags">
+                <span class="sae-tag">HTML / CSS</span>
+                <span class="sae-tag">DNS</span>
+                <span class="sae-tag">HTTPS</span>
+                <span class="sae-tag">Hébergement</span>
+              </div>
+            </div>
+            <div class="sae-footer">
+              <span class="sae-footer-empty">Rapport non disponible</span>
+            </div>
+          </div>
+
+          <!-- SAÉ 1.05 -->
+          <div class="sae-item reveal reveal-delay-1">
+            <div class="sae-media">
+              <img src="1.05.jfif" alt="SAÉ 1.05 – Traiter des données" />
+              <div class="sae-media-overlay"></div>
+              <span class="sae-status-chip chip-done">✓ Terminé</span>
+            </div>
+            <div class="sae-body">
+              <div class="sae-code-row">
+                <span class="sae-code">SAÉ 1.05</span>
+                <span class="sae-ue">UE3 · UE5</span>
+              </div>
+              <div class="sae-title">Traiter des données</div>
+              <p class="sae-desc">Collecte, nettoyage et visualisation de jeux de données réseau. Écriture de scripts Python pour automatiser l'analyse de logs et la détection d'anomalies simples.</p>
+              <div class="sae-tags">
+                <span class="sae-tag">Python</span>
+                <span class="sae-tag">Pandas</span>
+                <span class="sae-tag">Logs réseau</span>
+                <span class="sae-tag">Automatisation</span>
+              </div>
+            </div>
+            <div class="sae-footer">
+              <span class="sae-footer-text">Dossier complet du projet</span>
+              <a href="https://drive.google.com/drive/folders/1i84USHshIjcEYgWT9Id1nbN35TU4t66d?usp=drive_link" target="_blank" rel="noopener noreferrer" class="sae-cta">
+                <span class="cta-icon">📁</span>
+                Voir le dossier Drive
+                <span class="cta-arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- SAÉ 2.03 -->
+          <div class="sae-item reveal reveal-delay-1">
+            <div class="sae-media">
+              <img src="code.jfif" alt="SAÉ 2.03 – Mettre en place une solution informatique" />
+              <div class="sae-media-overlay"></div>
+              <span class="sae-status-chip chip-done">✓ Terminé</span>
+            </div>
+            <div class="sae-body">
+              <div class="sae-code-row">
+                <span class="sae-code">SAÉ 2.03</span>
+                <span class="sae-ue">UE3</span>
+              </div>
+              <div class="sae-title">Mettre en place une solution informatique</div>
+              <p class="sae-desc">Architectures techniques du projet, Application Web, Gestions de bases de données... .</p>
+              <div class="sae-tags">
+                <span class="sae-tag">Web</span>
+                <span class="sae-tag">Databases</span>
+                <span class="sae-tag">Django</span>
+                <span class="sae-tag">Machine virtuelle</span>
+              </div>
+            </div>
+            <div class="sae-footer">
+              <span class="sae-footer-text">Présentation du projet</span>
+              <a href="https://docs.google.com/presentation/d/1FoD3MsXqjFVXoxcBDLjOnN-DghjP_xIdt-UIGM9x0To/edit?slide=id.p#slide=id.p" target="_blank" rel="noopener noreferrer" class="sae-cta">
+                <span class="cta-icon">🖥️</span>
+                Voir la présentation
+                <span class="cta-arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- SAÉ INTÉGRATIVE -->
+          <div class="sae-item integrative reveal reveal-delay-2">
+            <div class="sae-media">
+              <img src="1.jpg" alt="SAÉ Intégrative BUT1" />
+              <div class="sae-media-overlay"></div>
+              <span class="sae-status-chip chip-done">✓ Terminé</span>
+            </div>
+            <div class="sae-body">
+              <div style="flex:1;display:flex;flex-direction:column;gap:0.75rem;">
+                <div class="sae-code-row">
+                  <span class="sae-code">SAÉ Intégrative · BUT1</span>
+                  <span class="sae-ue">UE1 · UE2 · UE3 · UE4 · UE5</span>
+                </div>
+                <div class="sae-title">Bilan intégratif de 1ère année</div>
+                <p class="sae-desc">Projet transversal couvrant les 5 UE. Mise en situation professionnelle : conception, déploiement et sécurisation d'une infrastructure réseau pour un client fictif, documentation complète, présentation orale et rapport final.</p>
+                <div class="sae-tags">
+                  <span class="sae-tag">Multi-compétences</span>
+                  <span class="sae-tag">Gestion de projet</span>
+                  <span class="sae-tag">Présentation client</span>
+                  <span class="sae-tag">Documentation</span>
+                </div>
+              </div>
+              <div class="sae-tags-col">
+                <span class="sae-link-placeholder">Livrables à ajouter</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ═══ BUT 2 ═══ -->
+      <div class="saes-year-block">
+        <div class="saes-year-heading reveal">
+          <span class="saes-year-badge y2">BUT 2</span>
+          <span class="saes-year-label">Deuxième année — 2024 · 2025</span>
+          <span class="saes-year-count">3 SAÉ</span>
+        </div>
+
+        <div class="saes-grid">
+
+          <!-- SAE 3.01 -->
+          <div class="sae-item reveal">
+            <div class="sae-media">
+              <img src="elec.jfif" alt="SAE3.01 – Système de transmission" />
+              <div class="sae-media-overlay"></div>
+              <span class="sae-status-chip chip-done">✓ Terminé</span>
+            </div>
+            <div class="sae-body">
+              <div class="sae-code-row">
+                <span class="sae-code">SAE3.01_FA</span>
+                <span class="sae-ue">UE1 · UE2 · UE5</span>
+              </div>
+              <div class="sae-title">Mettre en œuvre un système de transmission</div>
+              <p class="sae-desc">Déploiement d'un système de transmission complet en environnement professionnel simulé. Étude des contraintes de propagation, configuration des équipements et mesures de performance.</p>
+              <div class="sae-tags">
+                <span class="sae-tag">Transmission</span>
+                <span class="sae-tag">Mesures</span>
+                <span class="sae-tag">RF</span>
+                <span class="sae-tag">Optimisation</span>
+              </div>
+            </div>
+            <div class="sae-footer">
+              <span class="sae-footer-text">Étude technique menée</span>
+              <a href="https://docs.google.com/document/d/1iY7gmQWhdtPtRty_1WKzydT3DxhGsvJEl_5Pi9ozvJg/edit?usp=drive_link" target="_blank" rel="noopener noreferrer" class="sae-cta">
+                <span class="cta-icon">📄</span>
+                Voir l'étude
+                <span class="cta-arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- SAE 3.02 -->
+          <div class="sae-item reveal reveal-delay-1">
+            <div class="sae-media">
+              <img src="3.02.jfif" alt="SAE3.02 – Applications communicantes" />
+              <div class="sae-media-overlay"></div>
+              <span class="sae-status-chip chip-done">✓ Terminé</span>
+            </div>
+            <div class="sae-body">
+              <div class="sae-code-row">
+                <span class="sae-code">SAE3.02_FA</span>
+                <span class="sae-ue">UE2 · UE3</span>
+              </div>
+              <div class="sae-title">Développer des applications communicantes</div>
+              <p class="sae-desc">Conception et développement d'une application réseau client-serveur. Implémentation de protocoles applicatifs, gestion des sockets, interface utilisateur et tests de robustesse.</p>
+              <div class="sae-tags">
+                <span class="sae-tag">Python / Sockets</span>
+                <span class="sae-tag">Client-Serveur</span>
+                <span class="sae-tag">API REST</span>
+                <span class="sae-tag">Tests</span>
+              </div>
+            </div>
+            <div class="sae-footer">
+              <span class="sae-footer-text">Code source du projet</span>
+              <a href="https://github.com/wipeey/serp/tree/main" target="_blank" rel="noopener noreferrer" class="sae-cta cta-github">
+                <span class="cta-icon">🐙</span>
+                Voir sur GitHub
+                <span class="cta-arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- SAE 3.Cyber.03 -->
+          <div class="sae-item reveal reveal-delay-2">
+            <div class="sae-media">
+              <img src="reseau.jfif" alt="SAE3.Cyber.03 – Réseau sécurisé multi-sites" />
+              <div class="sae-media-overlay"></div>
+              <span class="sae-status-chip chip-done">✓ Terminé</span>
+            </div>
+            <div class="sae-body">
+              <div class="sae-code-row">
+                <span class="sae-code">SAE3.Cyber.03_FA</span>
+                <span class="sae-ue">UE1 · UE3 · UE4 · UE5</span>
+              </div>
+              <div class="sae-title">Concevoir un réseau informatique sécurisé multi-sites</div>
+              <p class="sae-desc">Architecture complète d'un réseau d'entreprise multi-sites : VPN IPsec inter-sites, segmentation VLAN, politique de filtrage, DMZ, supervision et documentation ANSSI.</p>
+              <div class="sae-tags">
+                <span class="sae-tag">VPN IPsec</span>
+                <span class="sae-tag">VLAN</span>
+                <span class="sae-tag">Firewall</span>
+                <span class="sae-tag">DMZ</span>
+                <span class="sae-tag">ANSSI</span>
+              </div>
+            </div>
+            <div class="sae-footer">
+              <span class="sae-footer-text">Rapport complet du projet</span>
+              <a href="https://docs.google.com/document/d/1Zf1j7f8rl-AU7_3duMKngJBv8HO7mcIY/edit" target="_blank" rel="noopener noreferrer" class="sae-cta">
+                <span class="cta-icon">📄</span>
+                Voir le rapport
+                <span class="cta-arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- SAE 4.Cyber.01 — EN COURS, pleine largeur -->
+          <div class="sae-item is-wip integrative reveal">
+            <div class="sae-media">
+              <img src="secu.jfif" alt="SAE4.Cyber.01 – Sécuriser un SI" />
+              <div class="sae-media-overlay"></div>
+              <span class="sae-status-chip chip-wip">⏳ En cours</span>
+            </div>
+            <div class="sae-body">
+              <div style="flex:1;display:flex;flex-direction:column;gap:0.75rem;">
+                <div class="sae-code-row">
+                  <span class="sae-code" style="color:var(--gold)">SAE4.Cyber.01</span>
+                  <span class="sae-ue">UE4 · UE5</span>
+                </div>
+                <div class="sae-title">Sécuriser un système d'information</div>
+                <p class="sae-desc">Mission complète de sécurisation d'un SI existant : audit de sécurité, cartographie des vulnérabilités, tests de pénétration contrôlés, plan de remédiation et durcissement des configurations. <em style="color:var(--gold);font-size:0.78rem">— Projet en cours.</em></p>
+                <div class="sae-tags">
+                  <span class="sae-tag">Pentest</span>
+                  <span class="sae-tag">Audit</span>
+                  <span class="sae-tag">Hardening</span>
+                  <span class="sae-tag">Réseau</span>
+                  <span class="sae-tag">LDAP</span>
+                </div>
+              </div>
+              <div class="sae-tags-col">
+                <span class="sae-link-placeholder">À venir</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 — Portfolio BUT R&T Cybersécurité</span>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="competences.html">Compétences</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+let lastY = 0;
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  header.classList.toggle('hidden', y > lastY && y > 100);
+  lastY = y;
+}, { passive: true });
+
+const toggle = document.getElementById('navToggle');
+const menu   = document.getElementById('mobileMenu');
+toggle.addEventListener('click', () => menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Portfolio BUT R&T Cybersécurité</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23d96833'/><text x='50%25' y='60%25' font-size='18' text-anchor='middle' fill='%230f0e0b' font-family='monospace' font-weight='700'>R</text></svg>"/>
+</head>
+<body>
+<div class="cursor-dot" id="cursor"></div>
+
+<header id="header">
+  <nav>
+    <a href="index.html" class="nav-logo"><span>R&T</span>Cyber<span class="tag">BUT · 2A</span></a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html">SAÉ / Projets</a>
+      <a href="apropos.html">À propos</a>
+      <a href="contact.html" class="nav-cta active">Contact</a>
+    </div>
+    <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Accueil</a>
+  <a href="competences.html">Compétences</a>
+  <a href="projets.html">SAÉ / Projets</a>
+  <a href="apropos.html">À propos</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<main>
+  <section class="page-hero">
+    <div class="page-hero-bg"></div>
+    <div class="container page-hero-content">
+      <div class="label">Me contacter</div>
+      <h1>Restons en <span class="text-accent">contact</span></h1>
+      <p>Projet collaboratif ou simplement une question, n'hésitez pas à me joindre.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- INFO -->
+        <div class="contact-info reveal">
+          <div>
+            <div class="label">Coordonnées</div>
+            <h3 style="margin-bottom:1.5rem">Disponible</h3>
+          </div>
+
+          <a href="mailto:votre.email@example.com" class="contact-link">
+            <span class="contact-link-icon">✉️</span>
+            <div>
+              <div class="contact-link-text">anas.assmy@uha.fr</div>
+              <div class="contact-link-sub">Email — réponse sous 48h</div>
+            </div>
+          </a>
+
+          <a href="www.linkedin.com/in/anas-assmy-b4763a350" target="_blank" class="contact-link">
+            <span class="contact-link-icon">💼</span>
+            <div>
+              <div class="contact-link-text">LinkedIn</div>
+              <div class="contact-link-sub">linkedin.com/in/anas-assmy</div>
+            </div>
+          </a>
+
+          <a href="https://github.com/anasassmy" target="_blank" class="contact-link">
+            <span class="contact-link-icon">🐙</span>
+            <div>
+              <div class="contact-link-text">GitHub</div>
+              <div class="contact-link-sub">github.com/anasassmy</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- FORM -->
+        <div class="card reveal reveal-delay-1" style="padding:2.5rem;">
+          <div class="label">Formulaire</div>
+          <h3 style="margin-bottom:1.8rem">Envoyer un <span class="text-accent">message</span></h3>
+
+          <div id="formSuccess" style="display:none;text-align:center;padding:3rem 1rem;">
+            <div style="font-size:2.5rem;margin-bottom:1rem">✅</div>
+            <h4 style="color:var(--green);margin-bottom:0.5rem">Message envoyé !</h4>
+            <p style="color:var(--text-muted);font-size:0.9rem">Je reviendrai vers vous dans les meilleurs délais.</p>
+          </div>
+
+          <div id="contactForm">
+            <div class="form-group">
+              <label class="form-label" for="name">Nom & Prénom</label>
+              <input class="form-input" type="text" id="name" placeholder="Jean Dupont" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input class="form-input" type="email" id="email" placeholder="jean.dupont@entreprise.fr" required/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="subject">Sujet</label>
+              <input class="form-input" type="text" id="subject" placeholder="Demande concernant ..."/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Message</label>
+              <textarea class="form-textarea" id="message" placeholder="Décrivez votre projet ou votre demande…" required></textarea>
+            </div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;" id="sendBtn" onclick="handleSubmit()">
+              Envoyer le message →
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 — Portfolio BUT R&T Cybersécurité</span>
+      <div class="footer-links">
+        <a href="index.html">Accueil</a>
+        <a href="competences.html">Compétences</a>
+        <a href="projets.html">Projets</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+let lastY = 0;
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  header.classList.toggle('hidden', y > lastY && y > 100);
+  lastY = y;
+});
+const toggle = document.getElementById('navToggle');
+const menu   = document.getElementById('mobileMenu');
+toggle.addEventListener('click', () => menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+function handleSubmit() {
+  const name    = document.getElementById('name').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  if (!name || !email || !message) {
+    alert('Merci de remplir les champs obligatoires.');
+    return;
+  }
+  // Mailto fallback
+  const subject = document.getElementById('subject').value || 'Contact portfolio';
+  const body = `Nom : ${name}\nEmail : ${email}\n\n${message}`;
+  window.location.href = `mailto:votre.email@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+});
+</script>
+</body>
+</html>

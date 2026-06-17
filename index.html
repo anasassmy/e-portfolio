@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — BUT R&T Cybersécurité</title>
+  <meta name="description" content="Portfolio étudiant BUT Réseaux & Télécommunications, parcours Cybersécurité — 2e année"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23d96833'/><text x='50%25' y='60%25' font-size='18' text-anchor='middle' fill='%230f0e0b' font-family='monospace' font-weight='700'>R</text></svg>"/>
+</head>
+<body>
+
+<!-- ===== CURSOR ===== -->
+<div class="cursor-dot" id="cursor"></div>
+
+<!-- ===== HEADER ===== -->
+<header id="header">
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <span>R&T</span>Cyber
+      <span class="tag">BUT · 2A</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="competences.html">Compétences</a>
+      <a href="projets.html">SAÉ / Projets</a>
+      <a href="apropos.html">À propos</a>
+      <a href="contact.html" class="nav-cta">Contact</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Accueil</a>
+  <a href="competences.html">Compétences</a>
+  <a href="projets.html">SAÉ / Projets</a>
+  <a href="apropos.html">À propos</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<main>
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-glow"></div>
+
+    <!-- LEFT CARD: IUT -->
+    <div class="hero-side-card hero-side-left reveal">
+      <div class="side-card-img">
+        <img
+          src="uha.png"
+          alt="IUT de Colmar – Université de Haute-Alsace"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+        />
+        <div class="side-card-fallback">
+          <span>🎓</span>
+        </div>
+      </div>
+      <div class="side-card-info">
+        <div class="side-card-label">Formation</div>
+        <div class="side-card-title">IUT de Colmar</div>
+        <div class="side-card-sub">Université de Haute-Alsace</div>
+      </div>
+    </div>
+
+    <!-- RIGHT CARD: EDF -->
+    <div class="hero-side-card hero-side-right reveal">
+      <div class="side-card-img">
+        <img
+          src="edf.png"
+          alt="EDF – Électricité de France"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"
+        />
+        <div class="side-card-fallback">
+          <span>⚡</span>
+        </div>
+      </div>
+      <div class="side-card-info">
+        <div class="side-card-label">Alternance</div>
+        <div class="side-card-title">EDF</div>
+        <div class="side-card-sub">Pilote d'exploitation</div>
+      </div>
+    </div>
+
+    <div class="container hero-content">
+
+      <!-- NAME BLOCK -->
+      <div class="hero-identity">
+        <div class="hero-name-line">
+          <span class="hero-firstname">ANAS</span>
+          <span class="hero-lastname">ASSMY</span>
+        </div>
+        <div class="hero-title-line">
+          <span class="hero-role-tag">
+            <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#5ab87a"/></svg>
+            Étudiant BUT R&T · Cybersécurité
+          </span>
+          <span class="hero-role-sep">·</span>
+          <span class="hero-alt-tag">
+            <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#d96833"/></svg>
+            Alternant EDF · Pilote d'exploitation
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-badge">
+        <span class="dot"></span>
+        IUT de Colmar · Université de Haute-Alsace
+      </div>
+
+      <h1>
+        Réseaux &amp;<br/>
+        <em>Télécoms</em> ·<br/>
+        <span class="h1-cyber">Cybersécurité</span>
+      </h1>
+
+      <p class="hero-sub">
+        Portfolio de compétences — BUT R&T parcours Cybersécurité, 2ème année.
+        De l'administration réseau à la sécurisation des systèmes d'information,
+        en passant par l'exploitation en environnement industriel chez EDF.
+      </p>
+
+      <div class="hero-actions">
+        <a href="competences.html" class="btn btn-primary">
+          Voir les compétences →
+        </a>
+        <a href="projets.html" class="btn btn-outline">
+          Mes SAÉ & projets
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">5</div>
+          <div class="hero-stat-label">Unités d'Enseignement</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">9</div>
+          <div class="hero-stat-label">SAÉ réalisées</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">2</div>
+          <div class="hero-stat-label">Années de formation</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">⚡</div>
+          <div class="hero-stat-label">Alternant EDF</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">Scroll</div>
+  </section>
+
+  <!-- ===== APERÇU UE ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="label">Unités d'enseignement</div>
+      <h2 style="margin-bottom:0.6rem">5 compétences<br/><span class="text-accent">cœur du diplôme</span></h2>
+      <p class="text-muted" style="max-width:520px;margin-bottom:3rem;line-height:1.7">
+        Le BUT R&T Cybersécurité structure la formation autour de cinq blocs de compétences progressifs, du réseau à la sécurité opérationnelle.
+      </p>
+
+      <div class="ue-grid">
+        <!-- UE1 -->
+        <a href="competences.html#ue1" class="card ue-card reveal">
+          <div class="ue-icon">🌐</div>
+          <div class="ue-num">UE 1 · Administrer</div>
+          <div class="ue-title">Administrer les réseaux et l'Internet</div>
+          <p style="font-size:0.83rem;color:var(--text-muted);line-height:1.6">
+            Configuration, déploiement et maintenance des infrastructures réseaux et services internet.
+          </p>
+        </a>
+
+        <!-- UE2 -->
+        <a href="competences.html#ue2" class="card ue-card reveal reveal-delay-1">
+          <div class="ue-icon">🔗</div>
+          <div class="ue-num">UE 2 · Connecter</div>
+          <div class="ue-title">Connecter les entreprises et les usagers</div>
+          <p style="font-size:0.83rem;color:var(--text-muted);line-height:1.6">
+            Conception et déploiement de solutions d'accès, raccordement des SI aux réseaux publics.
+          </p>
+        </a>
+
+        <!-- UE3 -->
+        <a href="competences.html#ue3" class="card ue-card reveal reveal-delay-2">
+          <div class="ue-icon">⚙️</div>
+          <div class="ue-num">UE 3 · Programmer</div>
+          <div class="ue-title">Créer des outils et des applications pour les R&T</div>
+          <p style="font-size:0.83rem;color:var(--text-muted);line-height:1.6">
+            Développement d'applications communicantes, scripts d'automatisation, interfaces réseau.
+          </p>
+        </a>
+
+        <!-- UE4 -->
+        <a href="competences.html#ue4" class="card ue-card reveal reveal-delay-3">
+          <div class="ue-icon">🔐</div>
+          <div class="ue-num">UE 4 · Administrer (SI sécurisé)</div>
+          <div class="ue-title">Administrer un système d'information sécurisé</div>
+          <p style="font-size:0.83rem;color:var(--text-muted);line-height:1.6">
+            Mise en place de politiques de sécurité, gestion des accès, conformité RGPD.
+          </p>
+        </a>
+
+        <!-- UE5 -->
+        <a href="competences.html#ue5" class="card ue-card reveal reveal-delay-4">
+          <div class="ue-icon">🛡️</div>
+          <div class="ue-num">UE 5 · Surveiller</div>
+          <div class="ue-title">Surveiller un système d'information sécurisé</div>
+          <p style="font-size:0.83rem;color:var(--text-muted);line-height:1.6">
+            Détection d'incidents, analyse de logs, SIEM, veille cyber et conformité contractuelle.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APERÇU SAÉ ===== -->
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container">
+      <div class="label">Situations d'apprentissage et d'évaluation</div>
+      <h2 style="margin-bottom:0.6rem">Projets concrets<br/><span class="text-accent">comme preuves de compétences</span></h2>
+      <p class="text-muted" style="max-width:560px;margin-bottom:3rem;line-height:1.7">
+        Chaque SAÉ constitue une preuve tangible de maîtrise des compétences visées par le BUT R&T.
+      </p>
+
+      <div class="projets-grid">
+        <div class="card projet-card reveal">
+          <div class="projet-header">
+            <span class="projet-num">SAÉ 1.01</span>
+            <span class="projet-badge badge-done">Terminé</span>
+          </div>
+          <div class="projet-title">Sensibilisation à l'hygiène informatique et à la cybersécurité</div>
+          <p class="projet-desc">Audit de bonnes pratiques, création de supports de sensibilisation pour les utilisateurs finaux.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Sécurité</span>
+            <span class="tech-tag">Communication</span>
+            <span class="tech-tag">UE4 · UE5</span>
+          </div>
+        </div>
+
+        <div class="card projet-card reveal reveal-delay-1">
+          <div class="projet-header">
+            <span class="projet-num">SAÉ 3.Cyber.03</span>
+            <span class="projet-badge badge-done">Terminé</span>
+          </div>
+          <div class="projet-title">Concevoir un réseau informatique sécurisé multi-sites</div>
+          <p class="projet-desc">Architecture réseau complète avec VPN, firewalls, segmentation VLAN et politique de sécurité.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Cisco</span>
+            <span class="tech-tag">VPN</span>
+            <span class="tech-tag">Firewall</span>
+            <span class="tech-tag">VLAN</span>
+          </div>
+        </div>
+
+        <div class="card projet-card reveal reveal-delay-2">
+          <div class="projet-header">
+            <span class="projet-num">SAÉ 4.Cyber.01</span>
+            <span class="projet-badge badge-wip">En cours</span>
+          </div>
+          <div class="projet-title">Sécuriser un système d'information</div>
+          <p class="projet-desc">Audit complet d'un SI, identification des vulnérabilités, plan de remédiation et durcissement.</p>
+          <div class="tech-tags">
+            <span class="tech-tag">Audit</span>
+            <span class="tech-tag">Pentest</span>
+            <span class="tech-tag">Hardening</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:2.5rem">
+        <a href="projets.html" class="btn btn-outline">Voir tous les projets en détails →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SNAPSHOT ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="label">Compétences techniques</div>
+      <h2 style="margin-bottom:3rem">Outils & technologies<br/><span class="text-accent">maîtrisés</span></h2>
+
+      <div class="skills-grid" id="skillsGrid">
+        <div class="skill-bar reveal">
+          <div class="skill-info"><span class="skill-name">Administration réseau (Cisco)</span><span class="skill-pct">80%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="80"></div></div>
+        </div>
+        <div class="skill-bar reveal reveal-delay-1">
+          <div class="skill-info"><span class="skill-name">Linux / Bash</span><span class="skill-pct">75%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="75"></div></div>
+        </div>
+        <div class="skill-bar reveal reveal-delay-2">
+          <div class="skill-info"><span class="skill-name">Scripting Python</span><span class="skill-pct">65%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="65"></div></div>
+        </div>
+        <div class="skill-bar reveal reveal-delay-3">
+          <div class="skill-info"><span class="skill-name">Wireshark / analyse réseau</span><span class="skill-pct">70%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="70"></div></div>
+        </div>
+        <div class="skill-bar reveal">
+          <div class="skill-info"><span class="skill-name">Firewall (pfSense, iptables)</span><span class="skill-pct">72%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="72"></div></div>
+        </div>
+        <div class="skill-bar reveal reveal-delay-1">
+          <div class="skill-info"><span class="skill-name">VPN (OpenVPN, IPsec)</span><span class="skill-pct">68%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="68"></div></div>
+        </div>
+        <div class="skill-bar reveal reveal-delay-2">
+          <div class="skill-info"><span class="skill-name">VLAN / routage avancé</span><span class="skill-pct">78%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="78"></div></div>
+        </div>
+        <div class="skill-bar reveal reveal-delay-3">
+          <div class="skill-info"><span class="skill-name">Sécurité SI / RGPD</span><span class="skill-pct">60%</span></div>
+          <div class="skill-track"><div class="skill-fill" data-width="60"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 — Portfolio BUT R&T Cybersécurité</span>
+      <div class="footer-links">
+        <a href="competences.html">Compétences</a>
+        <a href="projets.html">Projets</a>
+        <a href="apropos.html">À propos</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Header hide on scroll
+let lastY = 0;
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  header.classList.toggle('hidden', y > lastY && y > 100);
+  lastY = y;
+});
+
+// Mobile menu
+const toggle = document.getElementById('navToggle');
+const menu   = document.getElementById('mobileMenu');
+toggle.addEventListener('click', () => menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+// Reveal on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Skill bars
+const skillObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.skill-fill').forEach(fill => {
+        fill.style.width = fill.dataset.width + '%';
+      });
+    }
+  });
+}, { threshold: 0.3 });
+const sg = document.getElementById('skillsGrid');
+if (sg) skillObserver.observe(sg);
+
+// Cursor
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.transform = `translate(${e.clientX - 4}px, ${e.clientY - 4}px)`;
+});
+</script>
+</body>
+</html>
